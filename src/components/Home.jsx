@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Navbar from './Navbar';
+import Card from './Card';
+import homesvg from "../img/home.svg"
 
 const Home = () => {
 
 
-    const [query, setQuery] = useState("Pizza")
-    const [meal, setMeal] = useState("Lunch")
-    const [recipe, setRecipe] = useState("")
+    const [query, setQuery] = useState("")
+    const [meal, setMeal] = useState("Breakfast")
+    const [recipes, setRecipes] = useState("")
     
     const APP_ID = "e0550b67";
     const APP_KEY = "b9fce4db63d154f4247d4d944c3fba8f";
@@ -19,26 +21,60 @@ const Home = () => {
       try {
         const app = await axios(url)
         const { data: { hits } } = app
-        console.log(hits)
-        setRecipe(hits)
+          console.log(hits)
+          if (!hits) {
+              <h1>Loading</h1>
+          }
+        setRecipes(hits)
       } catch (error) {
         console.log(error)
       }
   
     }
 
-  console.log(recipe)
-  
-  useEffect(() => {
-  getData()
-  
-    },[])
-    
 
+    
+    console.log(query)
+   
 
   return (
       <div>
-          <Navbar/>
+          <Navbar />
+          <div className="bg-gray-400 p-3">
+          <h1 className='text-center'>Food App</h1>
+             <form>
+              <div class="flex my-5 gap-5 bg-gray-400 justify-center">
+                  
+                      <input type="text" value={query} name="" id="" className='w-[15rem] rounded-lg' onChange={(e)=>setQuery(e.target.value)} />
+                  
+                      <button  onClick={()=>getData()} className='bg-red-600 py-1 px-5 font-bold text-md text-slate-300 rounded-md active:scale-95 active:bg-slate-300 active:text-slate-600 duration '>Search</button>
+                  
+                      <select onChange={(e)=>setMeal(e.target.value)} value="select" id="meal" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[15rem] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option value="Breakfast">Breakfast</option>
+                    <option value="Lunch">Lunch</option>
+                    <option value="Dinner">Dinner</option>
+                    <option value="Snack">Snack</option>
+                    <option value="Coffee">Coffee</option>
+                </select>
+            </div>
+              </form>
+          </div>
+          <div>
+          {recipes ? (
+                  recipes.map((item, index) => {
+                      const { recipe } = item;
+                      console.log(recipe)
+                      return <Card key={index} recipe={recipe} />;
+                  }
+              )
+              )
+                  : (
+                    <img src={homesvg} className="w-96 mt-32 mb-8" alt=""></img>
+                  )
+            }
+          </div>
+         
+
     </div>
   )
 }
