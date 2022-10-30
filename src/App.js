@@ -1,8 +1,8 @@
 import './App.css';
 import "./index.css"
 import "./output.css"
-import Home from './components/Home';
-import Login from './components/Login';
+
+import AppRouter from './pages/AppRouter'
 
 function App() {
 
@@ -10,8 +10,8 @@ function App() {
 
   return (
     <div className="App " >
-      <Login />
-      <Home/>
+    
+      <AppRouter/>
       
    </div>
   );

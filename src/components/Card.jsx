@@ -1,13 +1,14 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
+
 const Card = ({ recipe,index}) => {
 
   const navigate=useNavigate()
     console.log(recipe)
   return (
       
-       <div className="bg-slate-700 px-10 py-10 flex justify-center flex-col items-center w-30 h-[20rem] gap-4 shadow-xl shadow-slate-300 rounded-xl"
+       <div className="bg-orange-600 px-10 py-10 flex justify-center flex-col items-center w-30 h-[20rem] gap-4 shadow-xl shadow-slate-300 rounded-xl"
                   key={index}
                 >
                   <p className="w-[340px] text-center font-semibold text-slate-200 ">

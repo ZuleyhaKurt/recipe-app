@@ -1,21 +1,22 @@
 import { useState } from "react"
-import image from "../img/donut.avif"
+import image from "../img/login.avif"
 
 const Login = () => {
 
     const [account, setAccount] = useState(true)
     const [pass, setPass] = useState("")
     const [email, setEmail] = useState("")
-
+    const[user,setUser]= useState(false)
     const handleClick = () => {
-    console.log("first")
+      console.log("first")
+      setUser(true)
 }
 
 
   return (
     <div className="relative" >
     <img src={image} alt=""  className='h-[100vh] w-[100%] '/>
-    <div className="bg-gray-500 opacity-75 w-[500px] h-[400px] absolute top-10 left-16 rounded-lg shadow-lg shadow-gray-200 flex flex-col justify-center items-center gap-4 "> 
+    <div className="bg-gray-500 opacity-75 w-[300px] h-[350px] absolute top-10 right-16 rounded-lg shadow-lg shadow-gray-200 flex flex-col justify-center items-center gap-4 "> 
           <div className="w-[80%]">
             <p className="text-start font-bold indent-2">
               E-mail
@@ -23,7 +24,7 @@ const Login = () => {
             <input
             type="e-mail"
             placeholder="Enter Your E-mail Adress"
-            className="w-96 rounded-md indent-2 h-8"
+            className="w-[90%] rounded-md indent-2 h-8"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -37,7 +38,7 @@ const Login = () => {
         <input
             type="password"
             placeholder="Enter Your Pasword"
-            className="w-96 rounded-md indent-2 h-8"
+            className="w-[90%] rounded-md indent-2 h-8"
             value={pass}
             onChange={(e) => setPass(e.target.value)}
             required

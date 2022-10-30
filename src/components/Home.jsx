@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import Navbar from './Navbar';
 import Card from './Card';
 import homesvg from "../img/home.svg"
+import Navbar from './Navbar';
 
 const Home = () => {
 
@@ -38,12 +38,12 @@ const Home = () => {
    
 
   return (
-      <div>
-          <Navbar />
-          <div className="bg-gray-400 p-3">
+      <div className='bg-yellow-500'>
+          <Navbar/>
+          <div className="p-3">
           <h1 className='text-center'>Food App</h1>
             
-            <div class="flex my-5 gap-5 bg-gray-400 justify-center">
+            <div class="flex my-5 gap-5  justify-center">
                   
                       <input type="text" value={query} name="" id="" className='w-[15rem] rounded-lg' onChange={(e)=>setQuery(e.target.value)} />
                   
@@ -66,7 +66,7 @@ const Home = () => {
                       console.log(recipe)
                     return (
                       <div>
-                        <Card key={index} recipe={recipe} />;
+                        <Card key={index} recipe={recipe} />
                         </div>
                       )
                     })
