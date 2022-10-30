@@ -42,8 +42,8 @@ const Home = () => {
           <Navbar />
           <div className="bg-gray-400 p-3">
           <h1 className='text-center'>Food App</h1>
-             <form>
-              <div class="flex my-5 gap-5 bg-gray-400 justify-center">
+            
+            <div class="flex my-5 gap-5 bg-gray-400 justify-center">
                   
                       <input type="text" value={query} name="" id="" className='w-[15rem] rounded-lg' onChange={(e)=>setQuery(e.target.value)} />
                   
@@ -57,20 +57,21 @@ const Home = () => {
                     <option value="Coffee">Coffee</option>
                 </select>
             </div>
-              </form>
+              
           </div>
-          <div>
+          <div className='flex flex-wrap w-[100vw] gap-5 items-center justify-center'>
           {recipes ? (
                   recipes.map((item, index) => {
                       const { recipe } = item;
                       console.log(recipe)
-                      return <Card key={index} recipe={recipe} />;
-                  }
-              )
-              )
-                  : (
-                    <img src={homesvg} className="w-96 mt-32 mb-8" alt=""></img>
-                  )
+                    return (
+                      <div>
+                        <Card key={index} recipe={recipe} />;
+                        </div>
+                      )
+                    })
+              ) : <img src={homesvg} className="w-96 mt-32 mb-8" alt=""></img>
+                  
             }
           </div>
          
