@@ -1,18 +1,25 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import image from "../img/login.avif"
+import PrivateRouter from "../pages/PrivateRouter"
 
 const Login = () => {
-
+  const navigate=useNavigate()
     const [account, setAccount] = useState(true)
     const [pass, setPass] = useState("")
     const [email, setEmail] = useState("")
-    const[user,setUser]= useState(false)
-    const handleClick = () => {
-      console.log("first")
-      setUser(true)
+    
+  const userInfo = {
+      username:"admin"
+    }
+  const handleClick = () => {
+      localStorage.setItem("user",JSON.stringify(userInfo))
+      navigate("/home" )
+    
 }
 
 
+  
   return (
     <div className="relative" >
     <img src={image} alt=""  className='h-[100vh] w-[100%] '/>
@@ -45,10 +52,12 @@ const Login = () => {
         />
         <div className="w-full d-flex justify-content-center align-items-center m-3 ">
           <button className=" w-[50%] bg-gray-800 text-white rounded-md p-1 "
-        onClick={handleClick}
+        onClick={handleClick} 
           >
             {account ? "Register" : "Login"}
-          </button>
+            </button>
+            
+
         </div>
         <p
           className="underline underline-offset-4 text-black text-xl"

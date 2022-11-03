@@ -13,7 +13,7 @@ const Detail = () => {
     </div>
   </div>
   
-  <div className="flex justify-around bg-orange-300 py-12   flex-col md:flex-row px-5">
+  <div className="flex justify-around bg-orange-300  hover:text-orange-600 duration-1000 py-12   flex-col md:flex-row px-5">
     <div>
       {state?.ingredientLines.map((item) => {
         return (
