@@ -14,7 +14,7 @@ const Login = () => {
     }
   const handleClick = () => {
       localStorage.setItem("user",JSON.stringify(userInfo))
-      navigate("/home" )
+      navigate(-1)
     
 }
 
