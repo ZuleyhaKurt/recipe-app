@@ -38,9 +38,10 @@ const Home = () => {
    
 
   return (
-      <div className='bg-yellow-500'>
-          <Navbar/>
-          <div className="p-3">
+      <div className='bg-yellow-500 '>
+      <Navbar />
+      
+          <div className="p-3 ">
           <h1 className='text-center'>Food App</h1>
             
             <div class="flex my-5 gap-5  justify-center">
@@ -59,7 +60,7 @@ const Home = () => {
             </div>
               
           </div>
-          <div className='flex flex-wrap w-[100vw] gap-5 items-center justify-center'>
+          <div className='flex flex-wrap w-[100vw]  gap-5 items-center justify-center'>
           {recipes ? (
                   recipes.map((item, index) => {
                       const { recipe } = item;
@@ -70,13 +71,14 @@ const Home = () => {
                         </div>
                       )
                     })
-              ) : <img src={homesvg} className="w-96 mt-32 mb-8" alt=""></img>
+              ) : <img src={homesvg} className="w-96 h-[73vh]" alt=""></img>
                   
             }
           </div>
          
 
-    </div>
+      </div>
+      
   )
 }
 

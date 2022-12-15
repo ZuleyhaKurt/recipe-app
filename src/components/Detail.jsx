@@ -5,9 +5,9 @@ const Detail = () => {
     const{state}=useLocation()
    
     return (
-      <div>
+      <div className="h-[100vh] bg-orange-300 ">
     <div>
-    <div className="flex justify-around items-center py-5 bg-orange-300 text-black">
+    <div className="flex justify-around items-center py-20 bg-orange-300 text-black ">
       <div className="text-2xl font-bold">{state?.label}</div>
       <img src={meal} alt="" className="w-40" />
     </div>
